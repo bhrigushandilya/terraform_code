@@ -21,3 +21,9 @@ variable "type" {
 variable "lb_type" {
   
 }
+variable "instance_type" {
+  
+}
+variable "key_name" {
+  type = string
+}

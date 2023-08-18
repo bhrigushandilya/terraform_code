@@ -40,3 +40,14 @@ module "load_balancer" {
   subnet_id = module.vpc.public_subnet[*].id
   instance_id = module.ec2-instance.instance[*].id
 }
+
+module "autoscaling_group" {
+  source = "./modules/autoscaling_group"
+  env = var.env
+  image_id = module.ec2-instance.image_id.id
+  instance_type = var.instance_type
+  key_name = var.key_name
+  security_group_id = module.ec2-instance.security_group.id
+  vpc_zone_identifier = module.vpc.public_subnet[*].id
+  target_group_arn = module.load_balancer.lb_target_group.arn
+}
