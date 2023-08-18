@@ -27,3 +27,6 @@ variable "instance_type" {
 variable "key_name" {
   type = string
 }
+variable "device_name" {
+  
+}

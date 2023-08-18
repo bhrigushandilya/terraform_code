@@ -51,3 +51,11 @@ module "autoscaling_group" {
   vpc_zone_identifier = module.vpc.public_subnet[*].id
   target_group_arn = module.load_balancer.lb_target_group.arn
 }
+
+module "ebs_volume" {
+  source = "./modules/ebs_volume"
+  az = var.az
+  env = var.env
+  device_name = var.device_name
+  instance_id = module.ec2-instance.id
+}
