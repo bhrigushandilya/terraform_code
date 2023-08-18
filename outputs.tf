@@ -31,3 +31,8 @@ output "security_group_name" {
   description = "Name of the Security Group"
   value       = module.ec2-instance.security_group.name
 }
+
+output "lb_dns" {
+  description = "DNS name of the Load Balancer"
+  value       = module.load_balancer.lb.dns_name
+}
