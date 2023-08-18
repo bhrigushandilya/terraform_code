@@ -30,13 +30,3 @@ module "ec2-instance" {
   az = var.az
   public_subnet_id = module.vpc.public_subnet[*].id
 }
-
-module "load_balancer" {
-  source = "./modules/load_balancer"
-  env = var.env
-  vpc_id = module.vpc.vpc_id
-  lb_type = var.lb_type
-  security_group_id = module.ec2-instance.security_group.id
-  subnet_id = module.vpc.public_subnet[*].id
-  instance_id = module.ec2-instance.instance[*].id
-}

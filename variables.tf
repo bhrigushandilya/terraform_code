@@ -18,6 +18,3 @@ variable "type2" {
 variable "type" {
   
 }
-variable "lb_type" {
-  
-}
